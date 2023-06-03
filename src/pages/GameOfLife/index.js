@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import style from "./style.module.css";
 
 export function GameOfLife() {
 
@@ -110,7 +111,7 @@ export function GameOfLife() {
       const newCol = col + dy; // Coordenada da coluna do vizinho
 
       // Verifica se as coordenadas estão dentro dos limites do grid
-      // e se o vizinho está vivo (valor igual a 1)
+    // e se o vizinho está vivo (valor igual a 1)
       if (
         newRow >= 0 &&
         newRow < 10 &&
@@ -149,38 +150,35 @@ export function GameOfLife() {
     setRunning(false)
   }
 
-  return(
+  return (
     <div>
-       <h1>Jogo da Vida de Conway</h1>
-      <div
-        className="grid"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: `repeat(${10}, 20px)`,
-        }}
-      >
+      <h1 className={style.title}>Jogo da Vida de Conway</h1>
+      <div className={style.container}>
+      <div className={style.grid}>
         {grid.map((rows, i) =>
           rows.map((col, j) => (
             <div
               key={`${i}-${j}`}
-              className="cell"
+              className={style.cell}
               onClick={() => handleCellClick(i, j)}
               style={{
-                width: 20,
-                height: 20,
-                backgroundColor: grid[i][j] ? '#000000' : '#ffffff',
-                border: 'solid 1px #cccccc',
+                backgroundColor: grid[i][j] ? "#4b7fbb" : "#ffffff",
               }}
             ></div>
           ))
         )}
       </div>
-      <div className="controls">
-        <button onClick={handleStart} disabled={running}>Iniciar</button>
-        <button onClick={handleStop} disabled={!running}>Parar</button>
-        <button onClick={handleReset}>Reset</button>
+      <div className={style.controls}>
+        <button onClick={handleStart} disabled={running} className={style.button}>
+          Iniciar
+        </button>
+        <button onClick={handleStop} disabled={!running} className={style.button}>
+          Parar
+        </button>
+        <button onClick={handleReset} className={style.button}>Reset</button>
+      </div>
       </div>
     </div>
-  )
+  );
 
 }
