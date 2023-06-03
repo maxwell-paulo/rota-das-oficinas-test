@@ -1,18 +1,27 @@
 import { useState } from "react";
 
 export function BillDivider() {
+  // Estado para as pessoas
   const [people, setPeople] = useState([]);
+  // Estado para o nome da pessoa
   const [name, setName] = useState("");
+  // Estado para os itens
   const [items, setItems] = useState([]);
+  // Estado para o nome do item
   const [itemName, setItemName] = useState("");
+  // Estado para o preço do item
   const [itemPrice, setItemPrice] = useState("");
+  // Estado para os consumidores do item
   const [itemConsumers, setItemConsumers] = useState([]);
+  // Estado para a taxa de serviço de cada pessoa
   const [serviceCharge, setServiceCharge] = useState({});
 
+  // Função para lidar com a mudança de nome da pessoa
   function handlePersonChange(event) {
     setName(event.target.value);
   }
 
+  // Função para adicionar uma pessoa
   function handleAddPerson(event) {
     event.preventDefault();
 
@@ -22,14 +31,17 @@ export function BillDivider() {
     }
   }
 
+  // Função para lidar com a mudança de nome do item
   function handleItemNameChange(event) {
     setItemName(event.target.value);
   }
 
+  // Função para lidar com a mudança de preço do item
   function handleItemPriceChange(event) {
     setItemPrice(event.target.value);
   }
 
+  // Função para lidar com a seleção de uma pessoa como consumidor do item
   function handlePersonSelection(person) {
     if (itemConsumers.includes(person)) {
       setItemConsumers(itemConsumers.filter((p) => p !== person));
@@ -38,6 +50,7 @@ export function BillDivider() {
     }
   }
 
+  // Função para lidar com a mudança da taxa de serviço de uma pessoa
   function handleServiceChargeChange(person, checked) {
     setServiceCharge((prevServiceCharge) => ({
       ...prevServiceCharge,
@@ -45,6 +58,7 @@ export function BillDivider() {
     }));
   }
 
+  // Função para adicionar um item
   function handleAddItem(event) {
     event.preventDefault();
 
@@ -62,6 +76,7 @@ export function BillDivider() {
     }
   }
 
+  // Função para calcular o preço total
   function calculateTotalPrice() {
     let totalPrice = 0;
 
@@ -81,6 +96,7 @@ export function BillDivider() {
     return totalPrice.toFixed(2);
   }
 
+  // Função para calcular o preço por pessoa
   function calculatePersonPrice(person) {
     let personPrice = 0;
 
@@ -99,6 +115,7 @@ export function BillDivider() {
   return (
     <div>
       <h1>Aplicação de Mesas</h1>
+      {/* Adicionar uma pessoa */}
       <div>
         <input
           type="text"
@@ -108,6 +125,7 @@ export function BillDivider() {
         />
         <button onClick={handleAddPerson}>Adicionar Pessoa</button>
       </div>
+      {/* Adicionar um item */}
       <div>
         <input
           type="text"
@@ -121,6 +139,7 @@ export function BillDivider() {
           onChange={handleItemPriceChange}
           placeholder="Digite o preço do item"
         />
+        {/* Selecionar pessoas para o item */}
         <div>
           <h3>Pessoas na Mesa</h3>
           {people.map((person, index) => (
@@ -148,12 +167,14 @@ export function BillDivider() {
         </div>
         <button onClick={handleAddItem}>Adicionar Item</button>
       </div>
+      {/* Listar pessoas */}
       <div>
         <h2>Pessoas na Mesa</h2>
         {people.map((person, index) => (
           <p key={index}>{person}</p>
         ))}
       </div>
+      {/* Listar itens */}
       <div>
         <h2>Itens Consumidos</h2>
         {items.map((item, index) => (
@@ -167,6 +188,7 @@ export function BillDivider() {
           </div>
         ))}
       </div>
+      {/* Calcular preço total e por pessoa */}
       <div>
         <h2>Total a Pagar</h2>
         <p>Total: R${calculateTotalPrice()}</p>
