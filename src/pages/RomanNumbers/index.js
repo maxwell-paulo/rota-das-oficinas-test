@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import {romanToArab, arabToRoman, isValidArab, isValidRoman} from "roman-numbers"
+import style from "./style.module.css";
 
 export function RomanNumbers() {
   const [inputValue, setInputValue] = useState("") // Estado para armazenar o valor de entrada
@@ -37,15 +38,14 @@ export function RomanNumbers() {
 
   return (
 
-    <div>
-    <h2>Conversor de números romanos e arábicos</h2>
-    <label>
-      Número:
-      <input type="text" value={inputValue} onChange={handleInputChange} />
-    </label>
-    <button onClick={handleArabicToRoman}>Converter para Romano</button>
-    <button onClick={handleRomanToArabic}>Converter para Arábico</button>
-    <div>Resultado: {result}</div>
+    <div className={style.container}>
+    <h1 className={style.title}>CONVERSOR DE NÚMEROS ROMANOS</h1>
+      <input type="text" value={inputValue} onChange={handleInputChange} className={style.input} placeholder="Digite aqui o número"/>
+    <div className={style.buttonsContainer}>
+    <button onClick={handleArabicToRoman} className={style.button}>Converter para Romano</button>
+    <button onClick={handleRomanToArabic} className={style.button}>Converter para Arábico</button>
+    </div>
+    <div className={style.result}> {result}</div>
   </div>
 
   )
