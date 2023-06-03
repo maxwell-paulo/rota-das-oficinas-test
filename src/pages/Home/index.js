@@ -10,18 +10,18 @@ export function Home() {
 
     <ul className={style.taskList}>
       <li>
-        <a href="/numeros-romanos">Tarefa 1. Conversor de números romanos</a>
+        <a href="/numeros-romanos" className={style.pageLink}>Tarefa 1. Conversor de números romanos</a>
       </li>
       <li>
-        <a href="/jogo-da-vida">Tarefa 2. Jogo da vida</a>
+        <a href="/jogo-da-vida" className={style.pageLink}>Tarefa 2. Jogo da vida</a>
       </li>
       <li>
-        <a href="/conta">Tarefa 3. Divisor de conta de restaurante</a>
+        <a href="/conta" className={style.pageLink}>Tarefa 3. Divisor de conta de restaurante</a>
       </li>
     </ul>
 
     <p>Para ver o código <a href="https://github.com/maxwell-paulo/rota-das-oficinas-test" target="_blank"
-        rel="noreferrer">clique aqui</a></p>
+        rel="noreferrer" className={style.pageLink}>clique aqui</a></p>
   </div>
   )
 

@@ -5,24 +5,14 @@ import style from "./style.module.css";
 export function Navbar() {
   return (
     <div className={style.container}>
-      <div className={style.nav}>
-        <Link to={"/"}>
-          <img src={logo} alt="siteLogo" className={style.img} />
-        </Link>
-        <SearchBar />
-        <div className={style.links}>
-          <Link to={"/"}>
-            <p>Home</p>
-          </Link>
-          <Link to={`/add-cromo`}>
-            <p>Colar cromo</p>
-          </Link>
-          <Link to={`/about-us`}>
-            <p>Sobre</p>
-          </Link>
-        </div>
+    <div className={style.nav}>
+        <a href="/" className={style.navbarBrand}>Início</a>
 
-      </div>
+        <a href="/numeros-romanos" className={style.navbarBrand}>Números romano</a>
+        <a href="/jogo-da-vida" className={style.navbarBrand}>Jogo da vida</a>
+        <a href="/conta" className={style.navbarBrand}>Divisor de conta</a>
+</div>
+
     </div>
   );
 
