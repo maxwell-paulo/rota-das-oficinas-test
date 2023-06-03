@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Teste de Programação - Rota das Oficinas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é um teste técnico desenvolvido para a Rota das Oficinas. Ele demonstra minhas habilidades e conhecimentos em React.js e outras tecnologias utilizadas durante o desenvolvimento.
 
-## Available Scripts
+## Pré-requisitos
 
-In the project directory, you can run:
+Antes de iniciar, verifique se você possui os seguintes requisitos:
 
-### `npm start`
+-   Node.js (versão X.X.X)
+-   NPM (versão X.X.X)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Configuração do Ambiente
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Siga as etapas abaixo para configurar o ambiente de desenvolvimento:
 
-### `npm test`
+1.  Clone este repositório em sua máquina local.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    bashCopy code
 
-### `npm run build`
+    `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.  Navegue até o diretório do projeto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    arduinoCopy code
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    `cd nome-do-repositorio`
 
-### `npm run eject`
+3.  Instale as dependências do projeto.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Copy code
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    `npm install`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Executando a Aplicação
 
-## Learn More
+Siga as etapas abaixo para executar a aplicação:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1.  Inicie o servidor de desenvolvimento.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    sqlCopy code
 
-### Code Splitting
+    `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2.  Abra seu navegador e visite `http://localhost:3000` para visualizar a aplicação em execução.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Deploy da Aplicação
 
-### Making a Progressive Web App
+A aplicação foi implantada e está disponível no seguinte link:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Link para a aplicação em produção](https://github.com/maxwell-paulo/rota-das-oficinas-test)
