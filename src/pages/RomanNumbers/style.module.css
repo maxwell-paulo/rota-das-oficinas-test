@@ -54,7 +54,7 @@
   font-family: 'Gideon Roman', cursive;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .container {
     max-width: 100%;
     padding: 2%;
