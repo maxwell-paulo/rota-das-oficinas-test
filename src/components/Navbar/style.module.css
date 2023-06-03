@@ -1,0 +1,32 @@
+.container {
+  height: 70px;
+  width: 100%;
+  background-color: #2D2F43;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  max-width: 80vw;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+
+}
+
+.links p {
+  text-decoration: none;
+  color: white;
+}
+
+.img {
+  width: 40px;
+}
