@@ -1,65 +1,52 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import style from "./style.module.css";
 
 export function BillDivider() {
-  // Estado para as pessoas
   const [people, setPeople] = useState([]);
-  // Estado para o nome da pessoa
   const [name, setName] = useState("");
-  // Estado para os itens
   const [items, setItems] = useState([]);
-  // Estado para o nome do item
   const [itemName, setItemName] = useState("");
-  // Estado para o preço do item
   const [itemPrice, setItemPrice] = useState("");
-  // Estado para os consumidores do item
   const [itemConsumers, setItemConsumers] = useState([]);
-  // Estado para a taxa de serviço de cada pessoa
   const [serviceCharge, setServiceCharge] = useState({});
 
-  // Função para lidar com a mudança de nome da pessoa
-  function handlePersonChange(event) {
+  const handlePersonChange = (event) => {
     setName(event.target.value);
-  }
+  };
 
-  // Função para adicionar uma pessoa
-  function handleAddPerson(event) {
+  const handleAddPerson = (event) => {
     event.preventDefault();
 
     if (name) {
       setPeople([...people, name]);
       setName("");
     }
-  }
+  };
 
-  // Função para lidar com a mudança de nome do item
-  function handleItemNameChange(event) {
+  const handleItemNameChange = (event) => {
     setItemName(event.target.value);
-  }
+  };
 
-  // Função para lidar com a mudança de preço do item
-  function handleItemPriceChange(event) {
+  const handleItemPriceChange = (event) => {
     setItemPrice(event.target.value);
-  }
+  };
 
-  // Função para lidar com a seleção de uma pessoa como consumidor do item
-  function handlePersonSelection(person) {
+  const handlePersonSelection = (person) => {
     if (itemConsumers.includes(person)) {
       setItemConsumers(itemConsumers.filter((p) => p !== person));
     } else {
       setItemConsumers([...itemConsumers, person]);
     }
-  }
+  };
 
-  // Função para lidar com a mudança da taxa de serviço de uma pessoa
-  function handleServiceChargeChange(person, checked) {
+  const handleServiceChargeChange = (person, checked) => {
     setServiceCharge((prevServiceCharge) => ({
       ...prevServiceCharge,
       [person]: checked,
     }));
-  }
+  };
 
-  // Função para adicionar um item
-  function handleAddItem(event) {
+  const handleAddItem = (event) => {
     event.preventDefault();
 
     if (itemName && itemPrice && itemConsumers.length > 0) {
@@ -74,10 +61,9 @@ export function BillDivider() {
       setItemPrice("");
       setItemConsumers([]);
     }
-  }
+  };
 
-  // Função para calcular o preço total
-  function calculateTotalPrice() {
+  const calculateTotalPrice = () => {
     let totalPrice = 0;
 
     items.forEach((item) => {
@@ -94,10 +80,9 @@ export function BillDivider() {
     });
 
     return totalPrice.toFixed(2);
-  }
+  };
 
-  // Função para calcular o preço por pessoa
-  function calculatePersonPrice(person) {
+  const calculatePersonPrice = (person) => {
     let personPrice = 0;
 
     items.forEach((item) => {
@@ -110,38 +95,47 @@ export function BillDivider() {
     });
 
     return personPrice.toFixed(2);
-  }
+  };
 
   return (
-    <div>
-      <h1>Aplicação de Mesas</h1>
-      {/* Adicionar uma pessoa */}
-      <div>
+    <div className={style.container}>
+      <h1 className={style.title}>Divisor de Conta</h1>
+
+      <div className={style.formContainer}>
+      <h2>Adicionar pessoa</h2>
+      <div className={style.formField}>
         <input
           type="text"
           value={name}
           onChange={handlePersonChange}
-          placeholder="Digite o nome da pessoa"
+          placeholder="Digite o nome"
         />
-        <button onClick={handleAddPerson}>Adicionar Pessoa</button>
-      </div>
-      {/* Adicionar um item */}
-      <div>
+        <button onClick={handleAddPerson} className={style.button}>Add</button>
+        </div>
+        </div>
+
+
+      <div className={style.formContainer}>
+      <h2>Adicionar Item</h2>
+      <div className={style.formField}>
         <input
           type="text"
           value={itemName}
           onChange={handleItemNameChange}
-          placeholder="Digite o nome do item"
+          placeholder="Digite o nome"
         />
         <input
           type="number"
           value={itemPrice}
           onChange={handleItemPriceChange}
-          placeholder="Digite o preço do item"
+          placeholder="Digite o preço"
         />
-        {/* Selecionar pessoas para o item */}
-        <div>
-          <h3>Pessoas na Mesa</h3>
+        </div>
+        </div>
+
+        <div className={style.formContainer}>
+          <h2>Quem consumiu {itemName}</h2>
+          <div className={style.formField}>
           {people.map((person, index) => (
             <div key={index}>
               <label>
@@ -152,8 +146,23 @@ export function BillDivider() {
                 />
                 {person}
               </label>
-              <label>
-                Taxa de Serviço:
+
+            </div>
+          ))}
+          </div>
+          <button onClick={handleAddItem} className={style.button}>Adicionar Item</button>
+        </div>
+
+      <div className={style.formContainer}>
+        <h2>Total a Pagar</h2>
+        <div className={style.finalPaymentField}>
+        {people.map((person, index) => (
+          <div className={index % 2 === 0 ? style.oddField : style.evenField}>
+          <p key={index}>
+            {person}: <span>R${calculatePersonPrice(person)}</span>
+          </p>
+          <label>
+                10%:
                 <input
                   type="checkbox"
                   checked={serviceCharge[person] || false}
@@ -162,41 +171,22 @@ export function BillDivider() {
                   }
                 />
               </label>
-            </div>
-          ))}
-        </div>
-        <button onClick={handleAddItem}>Adicionar Item</button>
-      </div>
-      {/* Listar pessoas */}
-      <div>
-        <h2>Pessoas na Mesa</h2>
-        {people.map((person, index) => (
-          <p key={index}>{person}</p>
+              </div>
         ))}
+        </div>
+        <p>Total: <span>R${calculateTotalPrice()}</span></p>
       </div>
-      {/* Listar itens */}
-      <div>
+
+      <div className={style.formContainer}>
         <h2>Itens Consumidos</h2>
+        <div className={style.finalPaymentField}>
         {items.map((item, index) => (
-          <div key={index}>
-            <p>
-              {item.name} - Preço: R${item.price}
-            </p>
-            <p>
-              Consumido por: {item.consumers.join(", ")}
-            </p>
+          <div key={index} className={index % 2 === 0 ? style.oddField : style.evenField}>
+            <p>{item.name} - Preço: R${item.price}</p>
+            <p>Consumido por: {item.consumers.join(", ")}</p>
           </div>
         ))}
-      </div>
-      {/* Calcular preço total e por pessoa */}
-      <div>
-        <h2>Total a Pagar</h2>
-        <p>Total: R${calculateTotalPrice()}</p>
-        {people.map((person, index) => (
-          <p key={index}>
-            {person}: R${calculatePersonPrice(person)}
-          </p>
-        ))}
+        </div>
       </div>
     </div>
   );
