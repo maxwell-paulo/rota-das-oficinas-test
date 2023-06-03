@@ -152,8 +152,9 @@ export function GameOfLife() {
 
   return (
     <div>
-      <h1 className={style.title}>Jogo da Vida de Conway</h1>
+
       <div className={style.container}>
+      <h1 className={style.title}>Jogo da Vida de Conway</h1>
       <div className={style.grid}>
         {grid.map((rows, i) =>
           rows.map((col, j) => (
