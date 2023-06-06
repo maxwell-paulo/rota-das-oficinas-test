@@ -49,4 +49,4 @@ Siga as etapas abaixo para executar a aplicação:
 
 A aplicação foi implantada e está disponível no seguinte link:
 
-[Link para a aplicação em produção](https://github.com/maxwell-paulo/rota-das-oficinas-test)
+[Link para a aplicação em produção](https://rota-das-oficinas-test.vercel.app/)
